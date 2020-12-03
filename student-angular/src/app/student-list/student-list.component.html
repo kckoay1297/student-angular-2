@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>Student List:</h1>
+    <table datatable [dtOptions]="dtOptions" class="table table-bordered row-border hover">
+        <thead>
+          <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>NRIC</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let studentForm of studentList">
+            <td>{{ studentForm.studentId }}</td>
+            <td>{{ studentForm.studentName }}</td>
+            <td>{{ studentForm.nric }}</td>
+            <td>{{ studentForm.gender }}</td>
+            <td>{{ studentForm.email }}</td>
+            <td>{{ studentForm.phoneNumber }}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>

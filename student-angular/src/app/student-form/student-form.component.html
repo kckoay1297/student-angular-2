@@ -1,0 +1,97 @@
+<div class="container">
+    <div class="form-group">
+      <h1>Create Student Records:</h1>
+      <form (ngSubmit)="save(studentForm.value)" #studentForm="ngForm">
+
+        <div class="row">
+          <div class="form-group col-xs-2">
+            <label for="studentName">Student Name</label>
+            <input type="string" class="form-control" id="studentName"
+                   required 
+                   [(ngModel)]="model.studentName" name="studentName"
+                   #subscriptionType="ngModel">
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-xs-2">
+              <label for="nric">Student NRIC</label>
+              <input type="string" class="form-control" id="nric"
+                     required 
+                     [(ngModel)]="model.nric" name="nric"
+                     #subscriptionType="ngModel">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-xs-2">
+              <label for="gender">Gender</label>
+              <input type="string" class="form-control" id="gender"
+                     required 
+                     [(ngModel)]="model.gender" name="gender"
+                     #subscriptionType="ngModel">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-xs-2">
+              <label for="email">Email</label>
+              <input type="string" class="form-control" id="email"
+                     required 
+                     [(ngModel)]="model.email" name="email"
+                     #subscriptionType="ngModel">
+            </div>
+          </div>
+
+          
+          <div class="row">
+            <div class="form-group col-xs-2">
+              <label for="phoneNumber">Phone Number</label>
+              <input type="string" class="form-control" id="phoneNumber"
+                     required 
+                     [(ngModel)]="model.phoneNumber" name="phoneNumber"
+                     #subscriptionType="ngModel">
+            </div>
+          </div>
+          
+        <button type="submit" class="btn btn-success" [disabled]="!studentForm.valid">Create</button>
+      </form>
+    </div>
+  
+    <div [hidden]="!submitted">
+      <br>
+      <h4>You had submitted the following record:</h4>
+      <div class="row">
+        <div class="col-xs-3">Student Name:</div>
+        <div class="col-xs-9">{{ model.studentName }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">Student NRIC:</div>
+        <div class="col-xs-9">{{ model.nric }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">Gender:</div>
+        <div class="col-xs-9">{{ model.gender }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">Email:</div>
+        <div class="col-xs-9">{{ model.email }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">Phone Number:</div>
+        <div class="col-xs-9">{{ model.phoneNumber }}</div>
+      </div>
+      <br>
+      <h4>Creation Status:</h4>
+      <div class="row">
+        <div class="col-xs-3">Student ID:</div>
+        <div class="col-xs-9">{{ finalResult.studentId }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">Creation Status:</div>
+        <div class="col-xs-9" *ngIf="!finalResult.studentId">Failure</div>
+        <div class="col-xs-9" *ngIf="finalResult.studentId">Success</div>
+      </div>
+      <br>
+    </div>
+  </div>
